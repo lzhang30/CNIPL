@@ -9,7 +9,7 @@ You can also run ```python code/scribbles_generator.py``` for scribble label gen
 
 ```python code/dataloaders/word_data_processing.py``` for data preprocessing.
 
-Our work is based on both the 3D and 2D medical volumes.
+Our work is based on both the 2D medical volumes.
 
 The splits are available at `./data/WORD`.
 The scribble annotations we used for WORD dataset are available at `./WORD_scribble_labels`
