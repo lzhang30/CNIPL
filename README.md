@@ -1,5 +1,5 @@
 # CMILP
-A description projection for our Cross Margin-Information-based Pseudo-Label
+A description projection for our Cross-Neighbor-Information based Pseudo-Label for Better Semi-Scribble-Supervised Medical Image Segmentation
 
 # Data Preprocess
 
@@ -11,14 +11,22 @@ You can also run ```python code/scribbles_generator.py``` for scribble label gen
 
 Our work is based on both the 3D and 2D medical volumes.
 
-The splits are available at ```./data/WORD```.
+The splits are available at `./data/WORD`.
+The scribble annotations we used for WORD dataset are available at `./WORD_scribble_labels`
 
 
 
 # Model Training
 Run
 ```
-CUDA_VISIBLE_DEVICES=0 python train_ours_refine.py --fold fold1 --seed 114514 --base_lr 3e-2 --num_classes 15 --batch_size 8 --exp WORD/ours_crosspse
+cd code
+python train_CNIPL.py --gpu 0  --check 500 --labeled_ratio 8 --early_stop 20000 --fold fold1 --num_classes 4  --root_path ../data/ACDC --exp ACDC_CNIPL  --max_iterations 60000 --batch_size 16 
+python train_CNIPL.py --gpu 0  --check 500 --labeled_ratio 8 --early_stop 20000 --fold fold2 --num_classes 4  --root_path ../data/ACDC --exp ACDC_CNIPL  --max_iterations 60000 --batch_size 16 
+python train_CNIPL.py --gpu 0  --check 500 --labeled_ratio 8 --early_stop 20000 --fold fold3 --num_classes 4  --root_path ../data/ACDC --exp ACDC_CNIPL  --max_iterations 60000 --batch_size 16 
+python train_CNIPL.py --gpu 0  --check 500 --labeled_ratio 8 --early_stop 20000 --fold fold4 --num_classes 4  --root_path ../data/ACDC --exp ACDC_CNIPL  --max_iterations 60000 --batch_size 16 
+python train_CNIPL.py --gpu 0  --check 500 --labeled_ratio 8 --early_stop 20000 --fold fold5 --num_classes 4  --root_path ../data/ACDC --exp ACDC_CNIPL  --max_iterations 60000 --batch_size 16
+python val_ours.py
+
 ```
-for model training.
+for model training and evaluating.
 Have fun.
