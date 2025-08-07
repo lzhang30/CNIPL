@@ -1,4 +1,4 @@
-# CMILP
+# CNILP
 A description projection for our Cross-Neighbor-Information based Pseudo-Label for Better Semi-Scribble-Supervised Medical Image Segmentation
 
 # Data Preprocess
@@ -30,3 +30,7 @@ python val_ours.py
 ```
 for model training and evaluating.
 Have fun.
+
+## License
+
+This repository is released under MIT License.
